@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
         password = (EditText) TransitionContainer.findViewById(R.id.password);
         loginError = (TextView) TransitionContainer.findViewById(R.id.loginError);
         abort = (Button) TransitionContainer.findViewById(R.id.abort);
+        final String Email = email.getText().toString();
+        final String Password = password.getText().toString();
 
         Slide slideOut = new Slide(Gravity.LEFT);
         getWindow().setExitTransition(slideOut);
@@ -69,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                     //startActivity(intent, bundle);
 
                     MyExterneServices login = new MyExterneServices();
-                    Utilisateur  utilisateur = login.authenticate("", "");
+                    Utilisateur  utilisateur = login.authenticate(Email, Password);
                     if (utilisateur != null ) {
                         UserHandler.getInstance().setUser(utilisateur);
                         Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this).toBundle();

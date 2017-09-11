@@ -60,8 +60,15 @@ public class MainActivity extends AppCompatActivity {
                 } else {
 
                     Intent intent = new Intent(MainActivity.this, Home.class);
-                    Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this).toBundle();
-                    startActivity(intent, bundle);
+                    //Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this).toBundle();
+                    //startActivity(intent, bundle);
+
+
+
+
+
+
+
                 }
 
 

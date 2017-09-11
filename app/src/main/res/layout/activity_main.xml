@@ -42,7 +42,7 @@
             android:layout_gravity="center"
             android:layout_marginBottom="8dp"
             android:ems="10"
-            android:hint="Nom du joueur 1"
+            android:hint="Email / Pseudo"
             android:inputType="textEmailAddress"
             android:textColor="#64221b"
             android:textColorHint="#ffffff"

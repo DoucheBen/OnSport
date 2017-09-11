@@ -23,7 +23,7 @@ public class SignIn extends AppCompatActivity {
         Slide slideIn = new Slide(Gravity.RIGHT);
         getWindow().setEnterTransition(slideIn);
 
-        
+
 
 
     }

@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+import cdi.com.onsport.MyContext.UserHandler;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -71,9 +71,10 @@ public class MainActivity extends AppCompatActivity {
                     MyExterneServices login = new MyExterneServices();
                     Utilisateur  utilisateur = login.authenticate("", "");
                     if (utilisateur != null ) {
-
+                        UserHandler.getInstance().setUser(utilisateur);
                         Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this).toBundle();
                         startActivity(intent, bundle);
+
 
 
                     } else {

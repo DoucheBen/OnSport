@@ -21,7 +21,7 @@ public class MyExterneServices implements IService {
             utilisateur.setPseudo("toto");
             utilisateur.setMail("toto@mail.com");
             utilisateur.setMotdepasse("1234");
-            utilisateur.setDatedenaissance(new Date("now"));
+            utilisateur.setDatedenaissance(new Date());
             utilisateur.setVille("Lille");
             utilisateur.setCp("59000");
             if (email.equals(utilisateur.getMail()) && password.equals(utilisateur.getMotdepasse())) {
@@ -39,6 +39,10 @@ public class MyExterneServices implements IService {
 
     @Override
     public Utilisateur register(Utilisateur utilisateur) {
+        if (!prod) {
+
+            return null;
+        }
         return null;
     }
 

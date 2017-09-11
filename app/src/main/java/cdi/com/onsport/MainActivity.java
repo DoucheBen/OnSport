@@ -11,11 +11,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
     ViewGroup TransitionContainer;
-    private EditText email, password;
+    private EditText email, password ;
+    private TextView loginError;
     private Button abort;
 
     @Override
@@ -27,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         email = (EditText) TransitionContainer.findViewById(R.id.email);
         password = (EditText) TransitionContainer.findViewById(R.id.password);
+        loginError = (TextView) TransitionContainer.findViewById(R.id.loginError);
         abort = (Button) TransitionContainer.findViewById(R.id.abort);
 
         Slide slideOut = new Slide(Gravity.LEFT);
@@ -63,6 +68,18 @@ public class MainActivity extends AppCompatActivity {
                     //Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this).toBundle();
                     //startActivity(intent, bundle);
 
+                    MyExterneServices login = new MyExterneServices();
+                    Utilisateur  utilisateur = login.authenticate("", "");
+                    if (utilisateur != null ) {
+
+                        Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this).toBundle();
+                        startActivity(intent, bundle);
+
+
+                    } else {
+                        TransitionManager.beginDelayedTransition(TransitionContainer);
+                        loginError.setVisibility(View.VISIBLE);
+                    }
 
 
 
@@ -89,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
                     password.setVisibility(View.GONE);
                     signIn.setVisibility(View.VISIBLE);
                     abort.setVisibility(View.GONE);
+                    loginError.setVisibility(View.GONE);
 
 
             }

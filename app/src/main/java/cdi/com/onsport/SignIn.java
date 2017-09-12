@@ -1,18 +1,17 @@
 package cdi.com.onsport;
 
-import android.app.ActivityOptions;
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.app.DatePickerDialog;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.transition.Slide;
-import android.transition.TransitionManager;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 
-import cdi.com.onsport.MyContext.UserHandler;
+import java.util.Calendar;
 
 public class SignIn extends AppCompatActivity {
 
@@ -31,7 +30,7 @@ public class SignIn extends AppCompatActivity {
         getWindow().setEnterTransition(slideIn);
 
         EditText email = (EditText) findViewById(R.id.email);
-        EditText dateNaissance = (EditText) findViewById(R.id.dateNaissance);
+        final EditText dateNaissance = (EditText) findViewById(R.id.dateNaissance);
         EditText password = (EditText) findViewById(R.id.password);
         EditText password2 = (EditText) findViewById(R.id.password2);
         EditText codePostal = (EditText) findViewById(R.id.CodePostal);
@@ -43,6 +42,38 @@ public class SignIn extends AppCompatActivity {
         final String Password2 = password2.getText().toString();
         final String CodePostal = codePostal.getText().toString();
         final String Ville = ville.getText().toString();
+
+        /****************** OnClick EditText date de naissance ***************************/
+        //calendrier
+
+        dateNaissance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+// calender class's instance and get current date , month and year from calender
+                final Calendar c = Calendar.getInstance();
+                int mYear = c.get(Calendar.YEAR); // current year
+                int mMonth = c.get(Calendar.MONTH); // current month
+                int mDay = c.get(Calendar.DAY_OF_MONTH); // current day
+                // date picker dialog
+                DatePickerDialog datePickerDialog = new DatePickerDialog(SignIn.this,
+                        new DatePickerDialog.OnDateSetListener() {
+
+                            @Override
+                            public void onDateSet(DatePicker view, int year,
+                                                  int monthOfYear, int dayOfMonth) {
+                                // set day of month , month and year value in the edit text
+                                dateNaissance.setText(dayOfMonth + "/"
+                                        + (monthOfYear + 1) + "/" + year);
+
+                            }
+                        }, mYear, mMonth, mDay);
+
+                datePickerDialog.show();
+            }
+        });
+        /********************** fin onclick date de naissance *************************************/
+
 
         Button signUp = (Button) findViewById(R.id.SignUp);
         signUp.setOnClickListener(new View.OnClickListener() {

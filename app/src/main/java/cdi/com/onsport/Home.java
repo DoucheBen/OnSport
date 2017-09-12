@@ -17,6 +17,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import cdi.com.onsport.Activity.ListeActivity;
 import cdi.com.onsport.MyContext.UserHandler;
 
 public class Home extends AppCompatActivity
@@ -90,8 +91,13 @@ public class Home extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            // Handle the camera action
+            Intent intent = new Intent(this, Home.class);
+            Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle();
+            startActivity(intent, bundle);
         } else if (id == R.id.nav_search_activity) {
+            Intent intent = new Intent(this, ListeActivity.class);
+            Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle();
+            startActivity(intent, bundle);
 
         } else if (id == R.id.nav_activity) {
 

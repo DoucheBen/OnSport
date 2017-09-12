@@ -8,9 +8,33 @@ import java.util.List;
  */
 
 public class MyExterneServices implements IService {
+    protected boolean prod;
+    protected ClientWS cws;
+    public MyExterneServices(boolean prod){
+        this.prod=prod;
+    }
     @Override
     public Utilisateur authenticate(String email, String password) {
-        return null;
+        if(!prod) {
+            Utilisateur utilisateur = new Utilisateur();
+            utilisateur.setId(1);
+            utilisateur.setPseudo("toto");
+            utilisateur.setMail("toto@mail.com");
+            utilisateur.setMotdepasse("1234");
+            //utilisateur.setDatedenaissance(new Date("now"));
+            utilisateur.setVille("Lille");
+            utilisateur.setCp("59000");
+            if (email.equals(utilisateur.getMail()) && password.equals(utilisateur.getMotdepasse())) {
+                return utilisateur;
+            } else {
+                return null;
+            }
+        }else
+        {
+
+            return null;
+        }
+
     }
 
     @Override

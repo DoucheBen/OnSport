@@ -50,21 +50,6 @@ public class SignIn extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                    Intent intent = new Intent(SignIn.this, Home.class);
-                    //Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this).toBundle();
-                    //startActivity(intent, bundle);
-
-                    MyExterneServices login = new MyExterneServices();
-                    Utilisateur  utilisateur = login.authenticate(Email, Password);
-                    if (utilisateur != null ) {
-                        UserHandler.getInstance().setUser(utilisateur);
-                        Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this).toBundle();
-                        startActivity(intent, bundle);
-
-                    } else {
-                        TransitionManager.beginDelayedTransition(TransitionContainer);
-                        loginError.setVisibility(View.VISIBLE);
-                    }
 
             }
         });

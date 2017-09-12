@@ -1,17 +1,20 @@
 package cdi.com.onsport;
 
 import android.app.ActivityOptions;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.transition.Slide;
 import android.transition.TransitionManager;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import cdi.com.onsport.MyContext.UserHandler;
 
@@ -33,8 +36,6 @@ public class MainActivity extends AppCompatActivity {
         password = (EditText) TransitionContainer.findViewById(R.id.password);
         loginError = (TextView) TransitionContainer.findViewById(R.id.loginError);
         abort = (Button) TransitionContainer.findViewById(R.id.abort);
-        final String Email = email.getText().toString();
-        final String Password = password.getText().toString();
 
         Slide slideOut = new Slide(Gravity.LEFT);
         getWindow().setExitTransition(slideOut);
@@ -56,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
                 if (email.getVisibility() == View.GONE && password.getVisibility() == View.GONE) {
                     TransitionManager.beginDelayedTransition(TransitionContainer);
                     email.setVisibility(View.VISIBLE);
@@ -65,15 +65,13 @@ public class MainActivity extends AppCompatActivity {
                     abort.setVisibility(View.VISIBLE);
 
                 } else {
-
-                    Intent intent = new Intent(MainActivity.this, Home.class);
-                    //Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this).toBundle();
-                    //startActivity(intent, bundle);
-
-                    MyExterneServices login = new MyExterneServices();
+                    final String Email = email.getText().toString();
+                    final String Password = password.getText().toString();
+                    MyExterneServices login = new MyExterneServices(false);
                     Utilisateur  utilisateur = login.authenticate(Email, Password);
                     if (utilisateur != null ) {
                         UserHandler.getInstance().setUser(utilisateur);
+                        Intent intent = new Intent(MainActivity.this, Home.class);
                         Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this).toBundle();
                         startActivity(intent, bundle);
 
@@ -82,6 +80,12 @@ public class MainActivity extends AppCompatActivity {
                     } else {
                         TransitionManager.beginDelayedTransition(TransitionContainer);
                         loginError.setVisibility(View.VISIBLE);
+
+
+                        /*Toast toast = Toast.makeText(getApplicationContext(),  email.getText().toString(), Toast.LENGTH_SHORT);
+                        toast.show();*/
+
+
                     }
                 }
             }

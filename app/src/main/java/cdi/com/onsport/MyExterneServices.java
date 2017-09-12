@@ -24,6 +24,7 @@ public class MyExterneServices implements IService {
             //utilisateur.setDatedenaissance(new Date("now"));
             utilisateur.setVille("Lille");
             utilisateur.setCp("59000");
+            utilisateur.setCommentaire("Ca c'est fait!");
             if (email.equals(utilisateur.getMail()) && password.equals(utilisateur.getMotdepasse())) {
                 return utilisateur;
             } else {

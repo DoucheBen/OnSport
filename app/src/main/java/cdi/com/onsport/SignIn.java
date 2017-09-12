@@ -1,18 +1,13 @@
 package cdi.com.onsport;
 
-import android.app.ActivityOptions;
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.transition.Slide;
-import android.transition.TransitionManager;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-
-import cdi.com.onsport.MyContext.UserHandler;
 
 public class SignIn extends AppCompatActivity {
 
@@ -30,7 +25,7 @@ public class SignIn extends AppCompatActivity {
         Slide slideIn = new Slide(Gravity.RIGHT);
         getWindow().setEnterTransition(slideIn);
 
-        EditText email = (EditText) findViewById(R.id.email);
+        EditText email = (EditText) findViewById(R.id.emailUser);
         EditText dateNaissance = (EditText) findViewById(R.id.dateNaissance);
         EditText password = (EditText) findViewById(R.id.password);
         EditText password2 = (EditText) findViewById(R.id.password2);

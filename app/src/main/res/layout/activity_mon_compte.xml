@@ -50,7 +50,7 @@
                                                                 android:padding="10dp"/>
 
                                                             <TextView
-                                                                android:id="@+id/textViewMMail"
+                                                                android:id="@+id/Mail"
                                                                 android:layout_width="match_parent"
                                                                 android:layout_height="wrap_content"
                                                                 android:textAlignment="textEnd"
@@ -85,6 +85,27 @@
                 tools:layout_editor_absoluteY="0dp"
                 tools:layout_editor_absoluteX="0dp">
                 <TextView
+                    android:id="@+id/textViewPseudo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pseudo :"
+                    android:padding="10dp"/>
+
+                <TextView
+                    android:id="@+id/textViewPPseudo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Pseudo"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+           <!-- <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:layout_editor_absoluteY="0dp"
+                tools:layout_editor_absoluteX="0dp">
+                <TextView
                     android:id="@+id/textViewSexe"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -96,6 +117,26 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Sexe"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>-->
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:layout_editor_absoluteY="0dp"
+                tools:layout_editor_absoluteX="0dp">
+                <TextView
+                    android:id="@+id/textViewVille"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ville :"
+                    android:padding="10dp"/>
+
+                <TextView
+                    android:id="@+id/textViewVVille"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Ville"
                     android:textAlignment="textEnd" />
             </LinearLayout>
 

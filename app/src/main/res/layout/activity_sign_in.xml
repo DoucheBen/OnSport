@@ -31,12 +31,13 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:id="@+id/linearLayout"
-        android:weightSum="1">
+        android:weightSum="1"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true">
 
         <EditText
-            android:id="@+id/email"
+            android:id="@+id/emailUser"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_above="@+id/Joueur2"
@@ -118,7 +119,7 @@
             android:layout_marginBottom="8dp"
             android:ems="10"
             android:hint="Ville"
-            android:inputType="number"
+            android:inputType="text"
             android:textColor="#64221b"
             android:textColorHint="#ffffff"
             android:textSize="14dp"
@@ -158,7 +159,7 @@
                     android:layout_alignParentStart="true"
 
 
-                    android:text="Homme"
+                    android:text="Femme"
                     android:textColor="@android:color/background_light"
                     android:buttonTint="@android:color/background_light" />
 

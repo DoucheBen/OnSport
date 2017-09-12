@@ -23,6 +23,8 @@ public class SignIn extends AppCompatActivity {
 
     ViewGroup TransitionContainer;
     Date date=null;
+    Boolean ERROR = false;
+    Utilisateur session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,7 @@ public class SignIn extends AppCompatActivity {
         Slide slideIn = new Slide(Gravity.RIGHT);
         getWindow().setEnterTransition(slideIn);
 
+        EditText pseudo = (EditText) findViewById(R.id.pseudo);
         final EditText email = (EditText) findViewById(R.id.email);
         final EditText dateNaissance = (EditText) findViewById(R.id.dateNaissance);
         EditText password = (EditText) findViewById(R.id.password);
@@ -43,6 +46,7 @@ public class SignIn extends AppCompatActivity {
         EditText codePostal = (EditText) findViewById(R.id.CodePostal);
         EditText ville = (EditText) findViewById(R.id.Ville);
 
+        final String string_pseudo = pseudo.getText().toString();
         final String string_email = email.getText().toString();
         final String string_date = dateNaissance.getText().toString();
         final String string_password = password.getText().toString();
@@ -87,59 +91,75 @@ public class SignIn extends AppCompatActivity {
         /********************** fin onclick date de naissance *************************************/
 
 
+
+
         Button signUp = (Button) findViewById(R.id.SignUp);
         signUp.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                
-
-                IService inscription = new MyExterneServices(true);
-
-                 Utilisateur util = new Utilisateur();
-
-
-                Pattern p = Pattern.compile(".+@.+\\.[a-z]+");
-                // On déclare un matcher, qui comparera le pattern avec la
-                // string passée en argument
-                Matcher m = p.matcher(string_email);        // Si l’adresse mail saisie ne correspond au format d’une
-                // adresse mail on un affiche un message à l'utilisateur
-
-                if (!m.matches()) {
-                    Toast.makeText(SignIn.this, "Vous n'avez pas entré un mail valide",
+                if (string_email.isEmpty()||string_date.isEmpty()||string_password.isEmpty()||string_password2.isEmpty()||string_codePostal.isEmpty()||string_ville.isEmpty()){
+                    Toast.makeText(SignIn.this, "Vous devez renseigner tous les champs",
                             Toast.LENGTH_SHORT).show();
                 }
                 else {
 
-                    util.setMail(string_email);
-                }
+                    IService inscription = new MyExterneServices(true);
 
-                /************** on formate la date de naissance de String a Date *************/
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-                try {
-                    date = new Date(sdf.parse(string_date).getTime());
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-                /****************************************************************************/
-                util.setDatedenaissance(date);
-                if (string_password.equals(string_password2)){
-                    util.setMotdepasse(string_password);}
-                else{
-                    Toast.makeText(SignIn.this, "Les mots de passe ne corespondent pas",
-                            Toast.LENGTH_SHORT).show();
-                }
-                if (string_codePostal.length()>5){
-                    Toast.makeText(SignIn.this, "Vous n'avez pas entré un code postal valide",
-                            Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    util.setCp(string_codePostal);
-                }
-                util.setVille(string_ville);
+                    Utilisateur util = new Utilisateur();
+
+                    /************** on insere le pseudo *************/
+                    util.setPseudo(string_pseudo);
+                    /************** on verifie le mail *************/
+                    Pattern p = Pattern.compile(".+@.+\\.[a-z]+");
+                    Matcher m = p.matcher(string_email);
+                    if (!m.matches()) {
+                        Toast.makeText(SignIn.this, "Vous n'avez pas entré un mail valide",
+                                Toast.LENGTH_SHORT).show();
+                        ERROR = true;
+                    } else {
+
+                        util.setMail(string_email);
+                    }
 
 
-                inscription.register(util);
+                    /************** on formate la date de naissance de String a Date *************/
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                    try {
+                        date = sdf.parse(string_date);
+                  // date = new Date(sdf.parse(string_date).getTime());
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                        ERROR=true;
+                    }
+                    // on insere la date de naissance
+                    util.setDatedenaissance(date);
+
+                    /************** on on verifie les passwords *************/
+                    if (string_password.equals(string_password2)) {
+                        util.setMotdepasse(string_password);
+                    } else {
+                        Toast.makeText(SignIn.this, "Les mots de passe ne corespondent pas",
+                                Toast.LENGTH_SHORT).show();
+                        ERROR=true;
+                    }
+                    /************** on verifie le cp *************/
+                    if (string_codePostal.length() > 5) {
+                        Toast.makeText(SignIn.this, "Vous n'avez pas entré un code postal valide",
+                                Toast.LENGTH_SHORT).show();
+                        ERROR=true;
+                    } else {
+                        util.setCp(string_codePostal);
+                    }
+                    /************** on insere la ville *************/
+                    util.setVille(string_ville);
+
+                    if (ERROR==false)
+                    session = inscription.register(util);
+                    if (session==null)
+                        Toast.makeText(SignIn.this, "Erreur de communication avec la base de donnée",
+                                Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

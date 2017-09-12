@@ -36,6 +36,20 @@
         android:weightSum="1">
 
         <EditText
+            android:id="@+id/pseudo"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginBottom="8dp"
+            android:ems="10"
+            android:hint="Pseudo"
+            android:inputType="text"
+            android:textColor="#64221b"
+            android:textColorHint="#ffffff"
+            android:textSize="14dp"/>
+
+        <EditText
             android:id="@+id/email"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
@@ -49,6 +63,7 @@
             android:textColorHint="#ffffff"
             android:textSize="14dp"
             />
+
         <EditText
             android:id="@+id/dateNaissance"
             android:layout_width="250dp"

@@ -87,7 +87,21 @@
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
             android:layout_marginBottom="8dp"
-            android:hint="Activité"
+            android:hint="Type d'activité"
+            android:inputType="text"
+            android:textColor="#64221b"
+            android:textColorHint="@color/lightGrey"
+            android:textSize="14dp"
+            />
+
+        <EditText
+            android:id="@+id/nbrParticipants"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginBottom="8dp"
+            android:hint="Nombre de participants"
             android:inputType="text"
             android:textColor="#64221b"
             android:textColorHint="@color/lightGrey"

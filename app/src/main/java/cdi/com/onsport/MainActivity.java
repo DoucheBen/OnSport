@@ -83,18 +83,7 @@ public class MainActivity extends AppCompatActivity {
                         TransitionManager.beginDelayedTransition(TransitionContainer);
                         loginError.setVisibility(View.VISIBLE);
                     }
-
-
-
-
-
-
                 }
-
-
-
-
-
             }
         });
 

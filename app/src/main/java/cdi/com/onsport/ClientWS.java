@@ -8,6 +8,8 @@ import java.util.List;
  */
 
 public class ClientWS implements IService {
+    private final String wsUrl="http://192.168.23.117:8888/ws/dao";
+    private final String soapUurl="http://localhost:9998/service/";
     @Override
     public Utilisateur authenticate(String email, String password) {
         return null;

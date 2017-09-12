@@ -113,53 +113,11 @@
             android:layout_marginBottom="8dp"
             android:ems="10"
             android:hint="Ville"
-            android:inputType="number"
+            android:inputType="text"
             android:textColor="#64221b"
             android:textColorHint="#ffffff"
             android:textSize="14dp"
             />
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center">
-            <RadioGroup
-                android:gravity="center"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:orientation="horizontal"
-                android:baselineAligned="false">
-
-                <RadioButton
-                    android:id="@+id/radioButton_h"
-                    style="@android:style/Widget.CompoundButton.RadioButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_above="@+id/linearLayout"
-                    android:layout_alignParentStart="true"
-
-
-                    android:text="Homme"
-                    android:textColor="@android:color/background_light"
-                    android:buttonTint="@android:color/background_light" />
-
-                <RadioButton
-                    android:id="@+id/radioButton_f"
-                    style="@android:style/Widget.CompoundButton.RadioButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_above="@+id/linearLayout"
-                    android:layout_alignParentStart="true"
-
-
-                    android:text="Homme"
-                    android:textColor="@android:color/background_light"
-                    android:buttonTint="@android:color/background_light" />
-
-            </RadioGroup>
-
-        </LinearLayout>
 
 
 

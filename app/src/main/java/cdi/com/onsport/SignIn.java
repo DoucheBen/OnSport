@@ -10,12 +10,19 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class SignIn extends AppCompatActivity {
 
     ViewGroup TransitionContainer;
+    Date date=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,19 +36,24 @@ public class SignIn extends AppCompatActivity {
         Slide slideIn = new Slide(Gravity.RIGHT);
         getWindow().setEnterTransition(slideIn);
 
-        EditText email = (EditText) findViewById(R.id.email);
+        final EditText email = (EditText) findViewById(R.id.email);
         final EditText dateNaissance = (EditText) findViewById(R.id.dateNaissance);
         EditText password = (EditText) findViewById(R.id.password);
         EditText password2 = (EditText) findViewById(R.id.password2);
         EditText codePostal = (EditText) findViewById(R.id.CodePostal);
         EditText ville = (EditText) findViewById(R.id.Ville);
 
-        final String Email = email.getText().toString();
-        final String Date = dateNaissance.getText().toString();
-        final String Password = password.getText().toString();
-        final String Password2 = password2.getText().toString();
-        final String CodePostal = codePostal.getText().toString();
-        final String Ville = ville.getText().toString();
+        final String string_email = email.getText().toString();
+        final String string_date = dateNaissance.getText().toString();
+        final String string_password = password.getText().toString();
+        final String string_password2 = password2.getText().toString();
+        final String string_codePostal = codePostal.getText().toString();
+        final String string_ville = ville.getText().toString();
+
+
+
+
+
 
         /****************** OnClick EditText date de naissance ***************************/
         //calendrier
@@ -80,8 +92,54 @@ public class SignIn extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
+                if
+
+                IService inscription = new MyExterneServices(true);
+
+                 Utilisateur util = new Utilisateur();
 
 
+                Pattern p = Pattern.compile(".+@.+\\.[a-z]+");
+                // On déclare un matcher, qui comparera le pattern avec la
+                // string passée en argument
+                Matcher m = p.matcher(string_email);        // Si l’adresse mail saisie ne correspond au format d’une
+                // adresse mail on un affiche un message à l'utilisateur
+
+                if (!m.matches()) {
+                    Toast.makeText(SignIn.this, "Vous n'avez pas entré un mail valide",
+                            Toast.LENGTH_SHORT).show();
+                }
+                else {
+
+                    util.setMail(string_email);
+                }
+
+                /************** on formate la date de naissance de String a Date *************/
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                try {
+                    date = new Date(sdf.parse(string_date).getTime());
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                /****************************************************************************/
+                util.setDatedenaissance(date);
+                if (string_password.equals(string_password2)){
+                    util.setMotdepasse(string_password);}
+                else{
+                    Toast.makeText(SignIn.this, "Les mots de passe ne corespondent pas",
+                            Toast.LENGTH_SHORT).show();
+                }
+                if (string_codePostal.length()>5){
+                    Toast.makeText(SignIn.this, "Vous n'avez pas entré un code postal valide",
+                            Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    util.setCp(string_codePostal);
+                }
+                util.setVille(string_ville);
+
+
+                inscription.register(util);
             }
         });
 

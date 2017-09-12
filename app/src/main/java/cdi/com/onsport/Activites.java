@@ -33,7 +33,6 @@ public class Activites implements Serializable {
 	public int getId() {
 		return id;
 	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -41,7 +40,6 @@ public class Activites implements Serializable {
 	public String getLieu() {
 		return lieu;
 	}
-
 	public void setLieu(String lieu) {
 		this.lieu = lieu;
 	}
@@ -49,7 +47,6 @@ public class Activites implements Serializable {
 	public Date getDate_debut() {
 		return date_debut;
 	}
-
 	public void setDate_debut(Date date_debut) {
 		this.date_debut = date_debut;
 	}
@@ -57,7 +54,6 @@ public class Activites implements Serializable {
 	public Date getDate_fin() {
 		return date_fin;
 	}
-
 	public void setDate_fin(Date date_fin) {
 		this.date_fin = date_fin;
 	}
@@ -65,7 +61,6 @@ public class Activites implements Serializable {
 	public int getNbr_participants() {
 		return nbr_participants;
 	}
-
 	public void setNbr_participants(int nbr_participants) {
 		this.nbr_participants = nbr_participants;
 	}
@@ -73,7 +68,6 @@ public class Activites implements Serializable {
 	public String getActivite() {
 		return activite;
 	}
-
 	public void setActivite(String activite) {
 		this.activite = activite;
 	}
@@ -81,7 +75,6 @@ public class Activites implements Serializable {
 	public String getListe_participants() {
 		return liste_participants;
 	}
-
 	public void setListe_participants(String liste_participants) {
 		this.liste_participants = liste_participants;
 	}
@@ -89,7 +82,6 @@ public class Activites implements Serializable {
 	public String getStatus() {
 		return status;
 	}
-
 	public void setStatus(String status) {
 		this.status = status;
 	}
@@ -97,7 +89,6 @@ public class Activites implements Serializable {
 	public String getMessages() {
 		return messages;
 	}
-
 	public void setMessages(String messages) {
 		this.messages = messages;
 	}
@@ -105,7 +96,6 @@ public class Activites implements Serializable {
 	public String getImages() {
 		return images;
 	}
-
 	public void setImages(String images) {
 		this.images = images;
 	}
@@ -120,9 +110,4 @@ public class Activites implements Serializable {
 		this.activite = activite;
 		this.messages = messages;
 	}
-
-	
-
-
-	
 }

@@ -9,8 +9,10 @@ import android.transition.TransitionManager;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import cdi.com.onsport.Activity.Activity;
 import cdi.com.onsport.Home;
 import cdi.com.onsport.MainActivity;
 import cdi.com.onsport.MyContext.UserHandler;
@@ -78,6 +80,16 @@ public class MonCompte extends AppCompatActivity {
                 startActivity(intent, bundle);
             }
 
+        });
+
+        final ImageView connexion = (ImageView) findViewById(R.id.homeLink);
+        connexion.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MonCompte.this, Home.class);
+                startActivity(intent);
+            }
         });
     }
 }

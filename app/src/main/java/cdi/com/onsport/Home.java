@@ -16,12 +16,22 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 import cdi.com.onsport.Activity.ListeActivity;
+import cdi.com.onsport.Activity.ProposeActivity;
+import cdi.com.onsport.MyContext.ActivityAdapter;
 import cdi.com.onsport.MyContext.UserHandler;
+import cdi.com.onsport.userAccount.MonCompte;
 
 public class Home extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private ListView mListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +43,13 @@ public class Home extends AppCompatActivity
         getWindow().setExitTransition(slideOut);
         Slide slideIn = new Slide(Gravity.RIGHT);
         getWindow().setEnterTransition(slideIn);
+
+        mListView = (ListView) findViewById(R.id.liste);
+
+        List<Activites> activityList = genererListActivity();
+
+        ActivityAdapter adapter = new ActivityAdapter(this, activityList);
+        mListView.setAdapter(adapter);
 
         setSupportActionBar(toolbar);
 
@@ -100,8 +117,14 @@ public class Home extends AppCompatActivity
             startActivity(intent, bundle);
 
         } else if (id == R.id.nav_activity) {
+            Intent intent = new Intent(this, ProposeActivity.class);
+            Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle();
+            startActivity(intent, bundle);
 
         } else if (id == R.id.nav_account) {
+            Intent intent = new Intent(this, MonCompte.class);
+            Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle();
+            startActivity(intent, bundle);
 
         } else if (id == R.id.nav_logOut){
             Intent intent = new Intent(this, MainActivity.class);
@@ -111,5 +134,21 @@ public class Home extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private List<Activites> genererListActivity() {
+        List<Activites> infos = new ArrayList<Activites>();
+        try {
+            infos.add(new Activites("Lille", new SimpleDateFormat("yyyy-MM-DD").parse("1545-09-27"), 12, "Football", R.drawable.cover_foot));
+            infos.add(new Activites("Lille", new SimpleDateFormat("yyyy-MM-DD").parse("1545-09-27"), 12, "Football", R.drawable.cover_foot));
+            infos.add(new Activites("Arras", new SimpleDateFormat("yyyy-MM-DD").parse("1545-09-27"), 12, "Football", R.drawable.cover_foot));
+            infos.add(new Activites("Lille", new SimpleDateFormat("yyyy-MM-DD").parse("1545-09-27"), 12, "Football", R.drawable.cover_foot));
+            infos.add(new Activites("Lille", new SimpleDateFormat("yyyy-MM-DD").parse("1545-09-27"), 12, "Football", R.drawable.cover_foot));
+        }catch (Exception e){
+
+        }
+
+
+        return infos;
     }
 }

@@ -4,20 +4,21 @@ import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.transition.Slide;
+import android.view.Gravity;
+import android.view.View;
+import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.transition.Slide;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
-import cdi.com.onsport.userAccount.MonCompte;
+import cdi.com.onsport.Activity.ListeActivity;
+import cdi.com.onsport.MyContext.UserHandler;
 
 public class Home extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -90,15 +91,17 @@ public class Home extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            // Handle the camera action
+            Intent intent = new Intent(this, Home.class);
+            Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle();
+            startActivity(intent, bundle);
         } else if (id == R.id.nav_search_activity) {
+            Intent intent = new Intent(this, ListeActivity.class);
+            Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle();
+            startActivity(intent, bundle);
 
         } else if (id == R.id.nav_activity) {
 
         } else if (id == R.id.nav_account) {
-            Intent intent = new Intent(this, MonCompte.class);
-            Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle();
-            startActivity(intent, bundle);
 
         } else if (id == R.id.nav_logOut){
             Intent intent = new Intent(this, MainActivity.class);

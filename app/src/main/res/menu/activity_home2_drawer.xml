@@ -13,7 +13,7 @@
         <item
             android:id="@+id/nav_activity"
             android:icon="@drawable/ic_activity1"
-            android:title="Proposer une activité" />
+            android:title="Proposer une activité " />
     </group>
 
     <item android:title="Mon compte">

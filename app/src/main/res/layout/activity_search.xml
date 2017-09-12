@@ -8,6 +8,14 @@
     android:focusableInTouchMode="true"
     android:id="@+id/r">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        />
+
     <ImageView
         android:id="@+id/Splash"
         android:layout_width="match_parent"
@@ -39,20 +47,6 @@
         android:layout_marginBottom="130dp"
         >
 
-        <EditText
-            android:layout_marginTop="10dp"
-            android:id="@+id/titre"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_gravity="center"
-            android:layout_marginBottom="8dp"
-            android:hint="Nom de l'activité"
-            android:inputType="text"
-            android:textColor="#64221b"
-            android:textColorHint="@color/lightGrey"
-            android:textSize="14dp"
-            />
 
         <EditText
             android:id="@+id/lieu"
@@ -74,7 +68,7 @@
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
             android:layout_marginBottom="8dp"
-            android:hint="Date de l'activité"
+            android:hint="À partir du "
             android:inputType="text"
             android:textColor="#64221b"
             android:textColorHint="@color/lightGrey"
@@ -92,21 +86,9 @@
             android:textColor="#64221b"
             android:textColorHint="@color/lightGrey"
             android:textSize="14dp"
+
             />
 
-        <EditText
-            android:id="@+id/nbrParticipants"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_gravity="center"
-            android:layout_marginBottom="8dp"
-            android:hint="Nombre de participants"
-            android:inputType="text"
-            android:textColor="#64221b"
-            android:textColorHint="@color/lightGrey"
-            android:textSize="14dp"
-            />
 
 
 
@@ -127,16 +109,15 @@
         android:weightSum="1">
         <Button
 
-            android:id="@+id/SignUp"
+            android:id="@+id/Search"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:background="@drawable/btn_red"
             android:clickable="true"
-            android:text="Enregistrer l'activitée"
+            android:text="Afficher les activités"
             android:textAllCaps="false"
             android:textColor="#ffffff" />
     </LinearLayout>

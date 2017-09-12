@@ -24,6 +24,7 @@ import java.util.List;
 
 import cdi.com.onsport.Activity.ListeActivity;
 import cdi.com.onsport.Activity.ProposeActivity;
+import cdi.com.onsport.Activity.SearchActivity;
 import cdi.com.onsport.MyContext.ActivityAdapter;
 import cdi.com.onsport.MyContext.UserHandler;
 import cdi.com.onsport.userAccount.MonCompte;
@@ -54,11 +55,13 @@ public class Home extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setImageResource(R.drawable.ic_search);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(Home.this, SearchActivity.class);
+                Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(Home.this).toBundle();
+                startActivity(intent, bundle);
             }
         });
 
@@ -112,7 +115,7 @@ public class Home extends AppCompatActivity
             Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle();
             startActivity(intent, bundle);
         } else if (id == R.id.nav_search_activity) {
-            Intent intent = new Intent(this, ListeActivity.class);
+            Intent intent = new Intent(this, SearchActivity.class);
             Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle();
             startActivity(intent, bundle);
 

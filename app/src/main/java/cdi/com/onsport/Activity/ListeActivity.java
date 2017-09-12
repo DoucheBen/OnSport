@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import java.sql.Date;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cdi.com.onsport.Activites;
+import cdi.com.onsport.Home;
 import cdi.com.onsport.MyContext.ActivityAdapter;
 import cdi.com.onsport.R;
 
@@ -34,6 +36,16 @@ public class ListeActivity extends AppCompatActivity {
 
         ActivityAdapter adapter = new ActivityAdapter(ListeActivity.this, activityList);
         mListView.setAdapter(adapter);
+
+        final ImageView connexion = (ImageView) findViewById(R.id.homeLink);
+        connexion.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ListeActivity.this, Home.class);
+                startActivity(intent);
+            }
+        });
 
 
 

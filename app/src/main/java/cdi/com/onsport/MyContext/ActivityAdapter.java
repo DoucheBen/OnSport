@@ -1,7 +1,9 @@
 package cdi.com.onsport.MyContext;
 
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +16,10 @@ import java.util.Date;
 import java.util.List;
 
 import cdi.com.onsport.Activites;
+import cdi.com.onsport.Activity.Activity;
 import cdi.com.onsport.R;
+import cdi.com.onsport.userAccount.MonCompte;
+import cdi.com.onsport.userAccount.UserModifier;
 
 /**
  * Created by Administrateur on 12/09/2017.
@@ -55,6 +60,8 @@ public class ActivityAdapter extends ArrayAdapter<Activites> {
 
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(getContext(), Activity.class);
+                getContext().startActivity(intent);
 
             }
         });

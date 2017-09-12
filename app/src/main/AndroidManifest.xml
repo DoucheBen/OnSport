@@ -30,7 +30,10 @@
         <activity android:name=".userAccount.MonCompte" />
         <activity android:name=".Activity.ListeActivity" />
         <activity android:name=".Activity.ActivityDetails" />
-        <activity android:name=".Activity.ProposeActivity"></activity>
+        <activity android:name=".Activity.ProposeActivity" />
+        <activity android:name=".userAccount.UserModifier" />
+        <activity android:name=".Activity.SearchActivity" />
+        <activity android:name=".Activity.Activity"></activity>
     </application>
 
 </manifest>

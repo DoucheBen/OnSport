@@ -53,6 +53,8 @@ public class ActivityAdapter extends ArrayAdapter<Activites> {
 
         //il ne reste plus qu'à remplir notre vue
         viewHolder.activite.setText(activite.getActivite());
+        viewHolder.lieu.setText(activite.getLieu());
+        viewHolder.date_debut.setText(activite.getDate_debut().toString());
 
         viewHolder.images.setImageResource(activite.getImages());
         viewHolder.link.setOnClickListener(new View.OnClickListener()  {
@@ -61,6 +63,11 @@ public class ActivityAdapter extends ArrayAdapter<Activites> {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), Activity.class);
+                intent.putExtra("activity", activite.getActivite());
+                intent.putExtra("lieu", activite.getLieu());
+                intent.putExtra("date",activite.getDate_debut().toString());
+                getContext().startActivity(intent);
+
                 getContext().startActivity(intent);
 
             }
@@ -76,7 +83,6 @@ public class ActivityAdapter extends ArrayAdapter<Activites> {
         public TextView date_debut;
         public TextView nbr_participants;
         public TextView activite;
-        public TextView liste_participants;
         public ImageView images;
         public LinearLayout link;
     }

@@ -19,7 +19,7 @@ public class MyExterneServices implements IService {
 
     @Override
     public Utilisateur authenticate(String email, String password) {
-        Date currentDate= Calendar.getInstance().getTime();
+        Date currentDate = Calendar.getInstance().getTime();
         if (!prod) {
             // creation d'un fake pour test
             Utilisateur utilisateur = new Utilisateur();
@@ -57,31 +57,36 @@ public class MyExterneServices implements IService {
     @Override
     public List<Activites> getListActivity(String codepostal, Date debut, Date fin) {
         List<Activites> la = new ArrayList<>();
-            if (!prod) {
-                for (int i = 0; i < 10; i++) {
-                    Activites activite = new Activites("Lille" + i, Calendar.getInstance().getTime(), Calendar.getInstance().getTime(), 10 + i, "fouteux de brun", "un message bidon");
-                    la.add(activite);
-                }
-                return la;
-            } else {
-                ClientWS cws = new ClientWS();
-                return cws.getListActivity(codepostal, debut, fin);
+        if (!prod) {
+            for (int i = 0; i < 10; i++) {
+                Activites activite = new Activites("Lille" + i, Calendar.getInstance().getTime(), Calendar.getInstance().getTime(), 10 + i, "fouteux de brun", "un message bidon");
+                la.add(activite);
             }
+            return la;
+        } else {
+            ClientWS cws = new ClientWS();
+            return cws.getListActivity(codepostal, debut, fin);
+        }
 
     }
 
     @Override
     public List<Activites> getListActivity(String codepostal, Date debut, Date fin, Integer num) {
-        List<Activites> la= new ArrayList<>();
-        if(!prod){
-            for (int i=0;i<10;i++){
-                Activites activite=new Activites("Lille"+i,Calendar.getInstance().getTime(),Calendar.getInstance().getTime(),10+i,"fouteux de brun","un message bidon");
+        List<Activites> la = new ArrayList<>();
+        if (!prod) {
+            for (int i = 0; i < 10; i++) {
+                Activites activite = new Activites("Lille" + i, Calendar.getInstance().getTime(), Calendar.getInstance().getTime(), 10 + i,
+                        "fouteux de brun", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam elit lorem, luctus non nisi sagittis," +
+                        " ultrices facilisis nisl. Maecenas eget purus a justo efficitur vestibulum a vitae turpis. Quisque pretium leo id ultrices" +
+                        " tristique. Nullam lacinia suscipit finibus. Aliquam tempus justo neque, a volutpat tellus maximus at. ");
+                activite.setActivite("activité :" + i);
+                activite.setListe_participants(Integer.toString(5 + i));
                 la.add(activite);
             }
             return la;
-        }else {
+        } else {
             ClientWS cws = new ClientWS();
-            return cws.getListActivity(codepostal, debut, fin,num);
+            return cws.getListActivity(codepostal, debut, fin, num);
         }
     }
 }

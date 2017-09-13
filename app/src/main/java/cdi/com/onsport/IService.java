@@ -15,5 +15,21 @@ public interface IService {
 
 	Activites getActivity(int id);
 
+    List<Activites> activitiesByDayAndLieu(Date date,String str);
+
+    List<Activites> activitiesByLast(int i);
+
+    List<Activites> activitiesByLieu(String lieu);
+
+    List<Activites> activitiesByTypeAndLieu(String type,String lieu);
+
+    Activites addActivity(Activites activite);
+
+    List<Utilisateur> details(String str);
+
+    int getParticipantSize(int i);
+
+    String joinActivity(int i,int j);
+
 	
 }

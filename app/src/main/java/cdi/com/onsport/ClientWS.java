@@ -34,4 +34,44 @@ public class ClientWS implements IService {
     public Activites getActivity(int id) {
         return null;
     }
+
+    @Override
+    public List<Activites> activitiesByDayAndLieu(Date date, String str) {
+        return null;
+    }
+
+    @Override
+    public List<Activites> activitiesByLast(int i) {
+        return null;
+    }
+
+    @Override
+    public List<Activites> activitiesByLieu(String lieu) {
+        return null;
+    }
+
+    @Override
+    public List<Activites> activitiesByTypeAndLieu(String type, String lieu) {
+        return null;
+    }
+
+    @Override
+    public Activites addActivity(Activites activite) {
+        return null;
+    }
+
+    @Override
+    public List<Utilisateur> details(String str) {
+        return null;
+    }
+
+    @Override
+    public int getParticipantSize(int i) {
+        return 0;
+    }
+
+    @Override
+    public String joinActivity(int i, int j) {
+        return null;
+    }
 }

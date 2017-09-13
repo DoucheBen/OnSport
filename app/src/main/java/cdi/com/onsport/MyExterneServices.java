@@ -59,7 +59,12 @@ public class MyExterneServices implements IService {
         List<Activites> la = new ArrayList<>();
         if (!prod) {
             for (int i = 0; i < 10; i++) {
-                Activites activite = new Activites("Lille" + i, Calendar.getInstance().getTime(), Calendar.getInstance().getTime(), 10 + i, "fouteux de brun", "un message bidon");
+                Activites activite = new Activites("Lille" + i, Calendar.getInstance().getTime(), Calendar.getInstance().getTime(), 10 + i,
+                        "fouteux de brun", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam elit lorem, luctus non nisi sagittis," +
+                        " ultrices facilisis nisl. Maecenas eget purus a justo efficitur vestibulum a vitae turpis. Quisque pretium leo id ultrices" +
+                        " tristique. Nullam lacinia suscipit finibus. Aliquam tempus justo neque, a volutpat tellus maximus at. ");
+                activite.setActivite("activité :" + i);
+                activite.setListe_participants(Integer.toString(5 + i));
                 la.add(activite);
             }
             return la;

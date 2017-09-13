@@ -91,7 +91,7 @@ public class MonCompte extends AppCompatActivity {
         formatedDate = timeFormat.format(myDate);
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         try {
-             newdate = format.parse(formatedDate);
+            newdate = format.parse(formatedDate);
 
         } catch (ParseException e) {
             // TODO Auto-generated catch block
@@ -101,7 +101,7 @@ public class MonCompte extends AppCompatActivity {
         reportDate = df.format(newdate);
 
 
-       String TAG = "MON COMPTE";
+        String TAG = "MON COMPTE";
         Log.d(TAG,""+reportDate);
         birthdate.setText(reportDate);
 

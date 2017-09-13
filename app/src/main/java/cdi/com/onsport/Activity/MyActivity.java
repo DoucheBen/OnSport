@@ -63,7 +63,7 @@ public class MyActivity extends AppCompatActivity {
 
         activityType.setText(thisactivity.getActivite());
         lieu.setText(thisactivity.getLieu());
-        date.setText(Integer.toString(thisactivity.getDate_debut()));
+        date.setText(thisactivity.getDate_debut().toString());
 
     }
 

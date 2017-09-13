@@ -29,4 +29,9 @@ public class ClientWS implements IService {
     public List<Activites> getListActivity(String codepostal, Date debut, Date fin, Integer num) {
         return null;
     }
+
+    @Override
+    public Activites getActivity(int id) {
+        return null;
+    }
 }

@@ -96,6 +96,7 @@
             android:layout_marginBottom="20dp"
             android:background="@drawable/btn_light"
             android:clickable="true"
+            android:elevation="6dp"
             android:text="Connexion"
             android:textAllCaps="false"
             android:textColor="#232c3d" />

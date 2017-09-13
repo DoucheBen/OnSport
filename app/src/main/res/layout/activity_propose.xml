@@ -13,15 +13,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/splash"
+        android:src="@drawable/bg"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
 
     <ImageView
         android:id="@+id/logoSplash"
         android:layout_width="200dp"
-        android:layout_height="200dp"
-
+        android:layout_height="150dp"
         android:layout_centerHorizontal="true"
         android:src="@drawable/logo_splk"
 
@@ -33,127 +32,113 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:id="@+id/linearLayout"
+        android:weightSum="1"
+        android:background="@drawable/container_radius"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="130dp"
+        >
+
+        <EditText
+            android:layout_marginTop="10dp"
+            android:id="@+id/titre"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginBottom="8dp"
+            android:hint="Nom de l'activité"
+            android:inputType="text"
+            android:textColor="#64221b"
+            android:textColorHint="@color/lightGrey"
+            android:textSize="14dp"
+            />
+
+        <EditText
+            android:id="@+id/lieu"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginBottom="8dp"
+            android:hint="Lieu"
+            android:inputType="text"
+            android:textColor="#64221b"
+            android:textColorHint="@color/lightGrey"
+            android:textSize="14dp"
+            />
+        <EditText
+            android:id="@+id/Date"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginBottom="8dp"
+            android:hint="Date de l'activité"
+            android:inputType="text"
+            android:textColor="#64221b"
+            android:textColorHint="@color/lightGrey"
+            android:textSize="14dp"
+            />
+        <EditText
+            android:id="@+id/activity"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginBottom="8dp"
+            android:hint="Type d'activité"
+            android:inputType="text"
+            android:textColor="#64221b"
+            android:textColorHint="@color/lightGrey"
+            android:textSize="14dp"
+            />
+
+        <EditText
+            android:id="@+id/nbrParticipants"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginBottom="8dp"
+            android:hint="Nombre de participants"
+            android:inputType="text"
+            android:textColor="#64221b"
+            android:textColorHint="@color/lightGrey"
+            android:textSize="14dp"
+            />
+
+
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:weightSum="1">
-
-        <EditText
-            android:id="@+id/pseudo"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_gravity="center"
-            android:layout_marginBottom="8dp"
-            android:ems="10"
-            android:hint="Pseudo"
-            android:inputType="text"
-            android:textColor="#64221b"
-            android:textColorHint="#ffffff"
-            android:textSize="14dp"/>
-
-        <EditText
-            android:id="@+id/email"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_gravity="center"
-            android:layout_marginBottom="8dp"
-            android:ems="10"
-            android:hint="Email"
-            android:inputType="textEmailAddress"
-            android:textColor="#64221b"
-            android:textColorHint="#ffffff"
-            android:textSize="14dp"
-            />
-
-        <EditText
-            android:id="@+id/dateNaissance"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:focusableInTouchMode="false"
-            android:layout_gravity="center"
-            android:layout_marginBottom="8dp"
-            android:ems="10"
-            android:hint="Date de naissance"
-            android:inputType="date"
-            android:textColor="#64221b"
-            android:textColorHint="#ffffff"
-            android:textSize="14dp"/>
-        <EditText
-            android:id="@+id/password"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_gravity="center"
-            android:layout_marginBottom="8dp"
-            android:ems="10"
-            android:hint="Mot de passe"
-            android:inputType="textPassword"
-            android:textColor="#64221b"
-            android:textColorHint="#ffffff"
-            android:textSize="14dp"
-           />
-        <EditText
-            android:id="@+id/password2"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_gravity="center"
-            android:layout_marginBottom="8dp"
-            android:ems="10"
-            android:hint="Répéter Mot de passe"
-            android:inputType="textPassword"
-            android:textColor="#64221b"
-            android:textColorHint="#ffffff"
-            android:textSize="14dp"/>
-        <EditText
-            android:id="@+id/CodePostal"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_gravity="center"
-            android:layout_marginBottom="8dp"
-            android:ems="10"
-            android:hint="Code postal"
-            android:inputType="number"
-            android:textColor="#64221b"
-            android:textColorHint="#ffffff"
-            android:textSize="14dp"
-            />
-        <EditText
-            android:id="@+id/Ville"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_gravity="center"
-            android:layout_marginBottom="8dp"
-            android:ems="10"
-            android:hint="Ville"
-            android:inputType="text"
-            android:textColor="#64221b"
-            android:textColorHint="#ffffff"
-            android:textSize="14dp"
-            />
-
-
-
         <Button
 
             android:id="@+id/SignUp"
-            android:layout_width="250dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
-            android:background="@drawable/btn_light"
+            android:background="@drawable/btn_red"
             android:clickable="true"
-            android:text="Créer compte"
+            android:text="Enregistrer l'activitée"
             android:textAllCaps="false"
-            android:textColor="#232c3d" />
-
-
-
-
+            android:textColor="#ffffff" />
     </LinearLayout>
 
 

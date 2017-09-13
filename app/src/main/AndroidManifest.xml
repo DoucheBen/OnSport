@@ -23,13 +23,18 @@
 
         <!-- Main activity -->
         <activity android:name=".MainActivity" />
-        <activity android:name=".SignIn" />
+        <activity android:name=".userAccount.SignIn" />
         <activity
             android:name=".Home"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme" />
-        <activity android:name=".SignUpActivity" />
-        <activity android:name=".userAccount.MonCompte"></activity>
+        <activity android:name=".userAccount.MonCompte" />
+        <activity android:name=".Activity.ListeActivity" />
+        <activity android:name=".Activity.ActivityDetails" />
+        <activity android:name=".Activity.ProposeActivity" />
+        <activity android:name=".userAccount.UserModifier" />
+        <activity android:name=".Activity.SearchActivity" />
+        <activity android:name=".Activity.Activity"></activity>
     </application>
 
 </manifest>

@@ -31,9 +31,9 @@ import cdi.com.onsport.Utilisateur;
 
 public class SignIn extends AppCompatActivity {
 String TAG = "SignIn";
-    Date date=null;
     Boolean ERROR = false;
     Utilisateur session;
+    Date newdate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +83,7 @@ String TAG = "SignIn";
                             public void onDateSet(DatePicker view, int year,
                                                   int monthOfYear, int dayOfMonth) {
                                 // set day of month , month and year value in the edit text
+
                                 dateNaissance.setText(dayOfMonth + "/"
                                         + (monthOfYear + 1) + "/" + year);
 
@@ -104,11 +105,11 @@ String TAG = "SignIn";
             public void onClick(View v) {
                 String string_pseudo = pseudo.getText().toString();
                 String string_email = email.getText().toString();
-                String string_date = dateNaissance.getText().toString();
                 String string_password = password.getText().toString();
                 String string_password2 = password2.getText().toString();
                 String string_codePostal = codePostal.getText().toString();
                 String string_ville = ville.getText().toString();
+                String string_date = dateNaissance.getText().toString();
 
                 if (string_email.isEmpty()||string_date.isEmpty()||string_password.isEmpty()||string_password2.isEmpty()||string_codePostal.isEmpty()||string_ville.isEmpty()){
                     Toast.makeText(SignIn.this, "Vous devez renseigner tous les champs",
@@ -135,18 +136,46 @@ String TAG = "SignIn";
                     }
 
 
-                    /************** on formate la date de naissance de String a Date *************/
-                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-                    try {
-                        date = sdf.parse(string_date);
+                    /************** on verifie la date de naissance de String a Date *************/
+
+
                         // date = new Date(sdf.parse(string_date).getTime());
-                    } catch (ParseException e) {
+                    String oldFormat= "dd/MM/yyyy";
+                    String newFormat= "yyyy/MM/dd ";
+
+                    String formatedDate ;
+                    SimpleDateFormat dateFormat = new SimpleDateFormat(oldFormat);
+                    Date myDate = null;
+                    try {
+                        myDate = dateFormat.parse(string_date);
+                    } catch (java.text.ParseException e) {
                         e.printStackTrace();
-                        ERROR=true;
                     }
 
+                    SimpleDateFormat timeFormat = new SimpleDateFormat(newFormat);
+                    formatedDate = timeFormat.format(myDate);
+                    SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+                    try {
+                         newdate = format.parse(formatedDate);
+
+                    } catch (ParseException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                        Log.d(TAG,"date = "+newdate);
+
                     // on insere la date de naissance
-                    util.setDatedenaissance(date);
+                   /* SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+                    try {
+                         newdate = format.parse(string_date);
+
+                    } catch (ParseException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    } */
+
+
+                    util.setDatedenaissance(newdate);
 
                     /************** on on verifie les passwords *************/
                     if (string_password.equals(string_password2)) {

@@ -5,26 +5,28 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.transition.Slide;
-import android.transition.TransitionManager;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import cdi.com.onsport.Activity.Activity;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 import cdi.com.onsport.Home;
-import cdi.com.onsport.MainActivity;
 import cdi.com.onsport.MyContext.UserHandler;
-import cdi.com.onsport.MyExterneServices;
 import cdi.com.onsport.R;
-import cdi.com.onsport.Utilisateur;
+
+import static cdi.com.onsport.R.id.textViewDDdn;
 
 public class MonCompte extends AppCompatActivity {
     TextView Email;
     String email;
-  /*  TextView ddn;
-    Date dateNaissance;*/
     TextView textViewPPseudo;
     String pseudo ;
     TextView textViewVVille;
@@ -34,6 +36,8 @@ public class MonCompte extends AppCompatActivity {
     TextView textViewCComm;
     String comm;
     Button modifier;
+    String reportDate;
+    Date newdate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,9 +70,42 @@ public class MonCompte extends AppCompatActivity {
         email =  UserHandler.getInstance().getUser().getMail();
         Email.setText(email);
 
-      /*  ddn = (EditText)findViewById(R.id.dateNaissance);
-        dateNaissance = UserHandler.getInstance().getUser().getDatedenaissance();
-        ddn.setText(dateNaissance.format("dd/MM/yyyy ", dateNaissance).toString());*/
+        TextView birthdate =(TextView) findViewById(textViewDDdn);
+        Date date_birthdate = UserHandler.getInstance().getUser().getDatedenaissance();
+
+        DateFormat df = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.ENGLISH);
+        reportDate = df.format(date_birthdate);
+        String oldFormat= "EEE MMM dd HH:mm:ss zzz yyyy";
+        String newFormat= "dd/MM/yyyy ";
+
+        String formatedDate ;
+        SimpleDateFormat dateFormat = new SimpleDateFormat(oldFormat);
+        Date myDate = null;
+        try {
+            myDate = dateFormat.parse(reportDate);
+        } catch (java.text.ParseException e) {
+            e.printStackTrace();
+        }
+
+        SimpleDateFormat timeFormat = new SimpleDateFormat(newFormat);
+        formatedDate = timeFormat.format(myDate);
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+             newdate = format.parse(formatedDate);
+
+        } catch (ParseException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        df = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
+        reportDate = df.format(newdate);
+
+
+       String TAG = "MON COMPTE";
+        Log.d(TAG,""+reportDate);
+        birthdate.setText(reportDate);
+
+
 
         modifier = (Button) findViewById(R.id.modifier);
         modifier.setOnClickListener(new View.OnClickListener() {

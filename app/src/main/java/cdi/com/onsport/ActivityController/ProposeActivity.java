@@ -1,4 +1,4 @@
-package cdi.com.onsport.Activity;
+package cdi.com.onsport.ActivityController;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

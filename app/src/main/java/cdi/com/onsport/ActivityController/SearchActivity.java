@@ -1,4 +1,4 @@
-package cdi.com.onsport.Activity;
+package cdi.com.onsport.ActivityController;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
@@ -11,8 +11,6 @@ import android.view.View;
 import android.widget.Button;
 
 import cdi.com.onsport.R;
-import cdi.com.onsport.userAccount.MonCompte;
-import cdi.com.onsport.userAccount.UserModifier;
 
 public class SearchActivity extends AppCompatActivity {
 

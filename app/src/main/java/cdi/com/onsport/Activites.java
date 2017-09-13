@@ -11,6 +11,8 @@ public class Activites implements Serializable {
 
 	private int id;
 
+	private String titre;
+
 	private String lieu;
 
 	private Date date_debut;
@@ -100,6 +102,15 @@ public class Activites implements Serializable {
 		this.images = images;
 	}
 
+	public String getTitre() {
+		return titre;
+	}
+
+	public void setTitre(String titre) {
+		this.titre = titre;
+	}
+
+
 	public Activites(String lieu, Date date_debut, Date date_fin, int nbr_participants, String activite,
 			String messages) {
 		super();
@@ -111,4 +122,16 @@ public class Activites implements Serializable {
 		this.messages = messages;
 	}
 
+
+	public Activites(String titre,String lieu, Date date_debut, int nbr_participants, String activite,String messages) {
+		super();
+		this.titre = titre ;
+		this.lieu = lieu;
+		this.date_debut = date_debut;
+		this.nbr_participants = nbr_participants;
+		this.activite = activite;
+		this.messages = messages;
+
+
+	}
 }

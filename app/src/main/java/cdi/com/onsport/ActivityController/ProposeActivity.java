@@ -18,7 +18,6 @@ import java.util.Calendar;
 import java.util.Date;
 
 import cdi.com.onsport.Activites;
-import cdi.com.onsport.ActivityController.MyActivity;
 import cdi.com.onsport.IService;
 import cdi.com.onsport.MyExterneServices;
 import cdi.com.onsport.R;
@@ -143,7 +142,7 @@ public class ProposeActivity extends AppCompatActivity {
 
                     Activites myActivity = new Activites(string_titre,string_lieu,newdate,int_nombreParticipants,string_activity,string_commentaire);
                     IService add_activity = new MyExterneServices(false);
-                    int id_activity = add_activity.AJOUTERACTIVITE(myActivity);
+                    //int id_activity = add_activity.AJOUTERACTIVITE(myActivity);
                     Intent intent = new Intent(ProposeActivity.this, MyActivity.class);
                     intent.putExtra("id", id_activity);
                     Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(ProposeActivity.this).toBundle();

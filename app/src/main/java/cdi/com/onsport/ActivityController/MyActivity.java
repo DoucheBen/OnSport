@@ -58,7 +58,7 @@ public class MyActivity extends AppCompatActivity {
         lieu = (TextView) findViewById(R.id.lieu);
         date = (TextView) findViewById(R.id.date);
         commentaire = (TextView) findViewById(R.id.commentaire);
-        nbrparticipants = (TextView) findViewById(R.id.nbrParticipants);
+        nbrparticipants = (TextView) findViewById(R.id.nbrparticipants);
         maxpartipants = (TextView) findViewById(R.id.maxpartipants);
 
         activityType.setText(thisactivity.getActivite());

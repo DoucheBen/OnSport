@@ -4,7 +4,6 @@ import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.transition.Slide;
 import android.view.Gravity;
 import android.view.View;
@@ -18,15 +17,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
-import cdi.com.onsport.Activity.ListeActivity;
-import cdi.com.onsport.Activity.ProposeActivity;
-import cdi.com.onsport.Activity.SearchActivity;
+import cdi.com.onsport.ActivityController.ProposeActivity;
+import cdi.com.onsport.ActivityController.SearchActivity;
 import cdi.com.onsport.MyContext.ActivityAdapter;
-import cdi.com.onsport.MyContext.UserHandler;
 import cdi.com.onsport.userAccount.MonCompte;
 
 public class Home extends AppCompatActivity
@@ -45,13 +41,21 @@ public class Home extends AppCompatActivity
         Slide slideIn = new Slide(Gravity.RIGHT);
         getWindow().setEnterTransition(slideIn);
 
-        mListView = (ListView) findViewById(R.id.liste);
+        /*mListView = (ListView) findViewById(R.id.liste);
 
         List<Activites> activityList = genererListActivity();
 
         ActivityAdapter adapter = new ActivityAdapter(this, activityList);
         mListView.setAdapter(adapter);
+*/
+        mListView = (ListView) findViewById(R.id.liste);
 
+        MyExterneServices es = new MyExterneServices(false);
+
+        List<Activites> activityList = es.getListActivity("59000", new Date(), new Date());
+
+        ActivityAdapter adapter = new ActivityAdapter(Home.this, activityList);
+        mListView.setAdapter(adapter);
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -139,19 +143,5 @@ public class Home extends AppCompatActivity
         return true;
     }
 
-    private List<Activites> genererListActivity() {
-        List<Activites> infos = new ArrayList<Activites>();
-        try {
-            infos.add(new Activites("Lille", new SimpleDateFormat("yyyy-MM-DD").parse("1545-09-27"), 12, "Football", R.drawable.cover_foot));
-            infos.add(new Activites("Lille", new SimpleDateFormat("yyyy-MM-DD").parse("1545-09-27"), 12, "Football", R.drawable.cover_foot));
-            infos.add(new Activites("Arras", new SimpleDateFormat("yyyy-MM-DD").parse("1545-09-27"), 12, "Football", R.drawable.cover_foot));
-            infos.add(new Activites("Lille", new SimpleDateFormat("yyyy-MM-DD").parse("1545-09-27"), 12, "Football", R.drawable.cover_foot));
-            infos.add(new Activites("Lille", new SimpleDateFormat("yyyy-MM-DD").parse("1545-09-27"), 12, "Football", R.drawable.cover_foot));
-        }catch (Exception e){
 
-        }
-
-
-        return infos;
-    }
 }

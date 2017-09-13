@@ -1,4 +1,4 @@
-package cdi.com.onsport.Activity;
+package cdi.com.onsport.ActivityController;
 
 import android.app.ActivityOptions;
 import android.app.DatePickerDialog;

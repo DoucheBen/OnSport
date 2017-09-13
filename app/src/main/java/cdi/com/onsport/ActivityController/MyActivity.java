@@ -1,4 +1,4 @@
-package cdi.com.onsport.Activity;
+package cdi.com.onsport.ActivityController;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
@@ -64,6 +64,9 @@ public class MyActivity extends AppCompatActivity {
         activityType.setText(thisactivity.getActivite());
         lieu.setText(thisactivity.getLieu());
         date.setText(thisactivity.getDate_debut().toString());
+        commentaire.setText(thisactivity.getMessages());
+        nbrparticipants.setText(thisactivity.getListe_participants());
+        maxpartipants.setText(Integer.toString(thisactivity.getNbr_participants()));
 
     }
 

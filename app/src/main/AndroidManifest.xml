@@ -29,12 +29,12 @@
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme" />
         <activity android:name=".userAccount.MonCompte" />
-        <activity android:name=".Activity.ListeActivity" />
-        <activity android:name=".Activity.ActivityDetails" />
-        <activity android:name=".Activity.ProposeActivity" />
+        <activity android:name=".ActivityController.ListeActivity" />
+        <activity android:name=".ActivityController.ActivityDetails" />
+        <activity android:name=".ActivityController.ProposeActivity" />
         <activity android:name=".userAccount.UserModifier" />
-        <activity android:name=".Activity.SearchActivity" />
-        <activity android:name=".Activity.Activity"></activity>
+        <activity android:name=".ActivityController.SearchActivity" />
+        <activity android:name=".ActivityController.MyActivity"></activity>
     </application>
 
 </manifest>

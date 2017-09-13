@@ -106,7 +106,7 @@
 
 
                 <TextView
-                    android:id="@+id/textAtivity"
+                    android:id="@+id/commentaire"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginTop="15dp"
@@ -142,10 +142,10 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/nbrpartipants"
+                    android:id="@+id/nbrparticipants"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="12 "
+                    android:text="xx"
                     android:layout_gravity="center_vertical"
                     android:gravity="center_vertical"
                     android:textColor="@color/colorPrimary"
@@ -163,10 +163,10 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/Maxpartipants"
+                    android:id="@+id/maxpartipants"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="12"
+                    android:text="xx"
                     android:layout_gravity="center_vertical"
                     android:gravity="center_vertical"
                     android:textColor="@color/lightGrey"

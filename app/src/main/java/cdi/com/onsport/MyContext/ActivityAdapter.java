@@ -1,9 +1,7 @@
 package cdi.com.onsport.MyContext;
 
-import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,14 +10,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import java.util.Date;
 import java.util.List;
 
 import cdi.com.onsport.Activites;
-import cdi.com.onsport.Activity.Activity;
+import cdi.com.onsport.ActivityController.MyActivity;
 import cdi.com.onsport.R;
-import cdi.com.onsport.userAccount.MonCompte;
-import cdi.com.onsport.userAccount.UserModifier;
 
 /**
  * Created by Administrateur on 12/09/2017.
@@ -60,19 +55,17 @@ public class ActivityAdapter extends ArrayAdapter<Activites> {
         viewHolder.nbr_participants.setText(Integer.toString(activite.getNbr_participants()));
 
 
+
         viewHolder.images.setImageResource(activite.getImages());
         viewHolder.link.setOnClickListener(new View.OnClickListener()  {
 
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), Activity.class);
-                intent.putExtra("activity", activite.getActivite());
-                intent.putExtra("lieu", activite.getLieu());
-                intent.putExtra("date",activite.getDate_debut().toString());
+                Intent intent = new Intent(getContext(), MyActivity.class);
+                intent.putExtra("id", activite.getId());
                 getContext().startActivity(intent);
 
-                getContext().startActivity(intent);
 
             }
         });

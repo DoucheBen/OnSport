@@ -35,6 +35,19 @@
         />
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        >
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="@string/slogan"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@android:color/white"/>
+    </LinearLayout>
+
+    <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -44,7 +57,7 @@
         android:background="@drawable/container_radius"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
-        android:layout_marginBottom="130dp"
+        android:layout_marginBottom="90dp"
         >
 
 

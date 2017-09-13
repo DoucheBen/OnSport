@@ -41,7 +41,8 @@ public class ActivityAdapter extends ArrayAdapter<Activites> {
         if(viewHolder == null){
             viewHolder = new ActivityViewHolder();
             viewHolder.activite = (TextView) convertView.findViewById(R.id.activityType);
-            viewHolder.nbr_participants = (TextView) convertView.findViewById(R.id.Maxpartipants);
+            viewHolder.participants = (TextView) convertView.findViewById(R.id.nbrpartipants);
+            viewHolder.nbr_participants = (TextView) convertView.findViewById(R.id.Maxparticipants);
             viewHolder.lieu = (TextView) convertView.findViewById(R.id.lieu);
             viewHolder.date_debut = (TextView) convertView.findViewById(R.id.date);
             viewHolder.images = (ImageView) convertView.findViewById(R.id.picture);
@@ -55,6 +56,9 @@ public class ActivityAdapter extends ArrayAdapter<Activites> {
         viewHolder.activite.setText(activite.getActivite());
         viewHolder.lieu.setText(activite.getLieu());
         viewHolder.date_debut.setText(activite.getDate_debut().toString());
+        viewHolder.participants.setText(activite.getListe_participants());
+        viewHolder.nbr_participants.setText(Integer.toString(activite.getNbr_participants()));
+
 
         viewHolder.images.setImageResource(activite.getImages());
         viewHolder.link.setOnClickListener(new View.OnClickListener()  {
@@ -81,7 +85,7 @@ public class ActivityAdapter extends ArrayAdapter<Activites> {
     private class ActivityViewHolder{
         public TextView lieu;
         public TextView date_debut;
-        public TextView nbr_participants;
+        public TextView nbr_participants, participants;
         public TextView activite;
         public ImageView images;
         public LinearLayout link;

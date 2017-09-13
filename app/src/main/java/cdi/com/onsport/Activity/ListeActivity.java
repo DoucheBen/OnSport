@@ -10,14 +10,15 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
-import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import cdi.com.onsport.Activites;
 import cdi.com.onsport.Home;
 import cdi.com.onsport.MyContext.ActivityAdapter;
+import cdi.com.onsport.MyExterneServices;
 import cdi.com.onsport.R;
 
 public class ListeActivity extends AppCompatActivity {
@@ -32,7 +33,9 @@ public class ListeActivity extends AppCompatActivity {
 
         mListView = (ListView) findViewById(R.id.liste);
 
-        List<Activites> activityList = genererListActivity();
+        MyExterneServices es = new MyExterneServices(false);
+
+        List<Activites> activityList = es.getListActivity("59000", new Date(), new Date());
 
         ActivityAdapter adapter = new ActivityAdapter(ListeActivity.this, activityList);
         mListView.setAdapter(adapter);
@@ -52,21 +55,6 @@ public class ListeActivity extends AppCompatActivity {
 
     }
 
-    private List<Activites> genererListActivity() {
-        List<Activites> infos = new ArrayList<Activites>();
-        try {
-            infos.add(new Activites("Lille", new SimpleDateFormat("yyyy-MM-DD").parse("1545-09-27"), 12, "Football", R.drawable.cover_foot));
-            infos.add(new Activites("Lille", new SimpleDateFormat("yyyy-MM-DD").parse("1545-09-27"), 12, "Football", R.drawable.cover_foot));
-            infos.add(new Activites("Arras", new SimpleDateFormat("yyyy-MM-DD").parse("1545-09-27"), 12, "Football", R.drawable.cover_foot));
-            infos.add(new Activites("Lille", new SimpleDateFormat("yyyy-MM-DD").parse("1545-09-27"), 12, "Football", R.drawable.cover_foot));
-            infos.add(new Activites("Lille", new SimpleDateFormat("yyyy-MM-DD").parse("1545-09-27"), 12, "Football", R.drawable.cover_foot));
-        }catch (Exception e){
 
-        }
-
-
-        return infos;
-    }
 }
-    //String lieu, Date date_debut, int nbr_participants, String activite, String messages
 

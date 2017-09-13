@@ -111,13 +111,4 @@ public class Activites implements Serializable {
 		this.messages = messages;
 	}
 
-	public Activites(String lieu, Date date_debut, int nbr_participants, String activite, int images) {
-		super();
-		this.lieu = lieu;
-		this.date_debut = date_debut;
-		this.nbr_participants = nbr_participants;
-		this.activite = activite;
-		this.images = images;
-
-	}
 }

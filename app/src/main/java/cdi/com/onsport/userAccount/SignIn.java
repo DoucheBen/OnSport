@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.transition.Slide;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -29,7 +30,7 @@ import cdi.com.onsport.Utilisateur;
 
 
 public class SignIn extends AppCompatActivity {
-
+String TAG = "SignIn";
     Date date=null;
     Boolean ERROR = false;
     Utilisateur session;
@@ -46,21 +47,15 @@ public class SignIn extends AppCompatActivity {
         Slide slideIn = new Slide(Gravity.RIGHT);
         getWindow().setEnterTransition(slideIn);
 
-        EditText pseudo = (EditText) findViewById(R.id.pseudo);
+        final EditText pseudo = (EditText) findViewById(R.id.pseudo);
         final EditText email = (EditText) findViewById(R.id.email);
         final EditText dateNaissance = (EditText) findViewById(R.id.dateNaissance);
-        EditText password = (EditText) findViewById(R.id.password);
-        EditText password2 = (EditText) findViewById(R.id.password2);
-        EditText codePostal = (EditText) findViewById(R.id.CodePostal);
-        EditText ville = (EditText) findViewById(R.id.Ville);
+        final EditText password = (EditText) findViewById(R.id.password);
+        final EditText password2 = (EditText) findViewById(R.id.password2);
+        final EditText codePostal = (EditText) findViewById(R.id.CodePostal);
+        final EditText ville = (EditText) findViewById(R.id.Ville);
 
-        final String string_pseudo = pseudo.getText().toString();
-        final String string_email = email.getText().toString();
-        final String string_date = dateNaissance.getText().toString();
-        final String string_password = password.getText().toString();
-        final String string_password2 = password2.getText().toString();
-        final String string_codePostal = codePostal.getText().toString();
-        final String string_ville = ville.getText().toString();
+
 
 
 
@@ -73,6 +68,7 @@ public class SignIn extends AppCompatActivity {
         dateNaissance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
 
 // calender class's instance and get current date , month and year from calender
                 final Calendar c = Calendar.getInstance();
@@ -106,13 +102,21 @@ public class SignIn extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
+                String string_pseudo = pseudo.getText().toString();
+                String string_email = email.getText().toString();
+                String string_date = dateNaissance.getText().toString();
+                String string_password = password.getText().toString();
+                String string_password2 = password2.getText().toString();
+                String string_codePostal = codePostal.getText().toString();
+                String string_ville = ville.getText().toString();
+
                 if (string_email.isEmpty()||string_date.isEmpty()||string_password.isEmpty()||string_password2.isEmpty()||string_codePostal.isEmpty()||string_ville.isEmpty()){
                     Toast.makeText(SignIn.this, "Vous devez renseigner tous les champs",
                             Toast.LENGTH_SHORT).show();
                 }
                 else {
 
-                    IService inscription = new MyExterneServices(true);
+                    IService inscription = new MyExterneServices(false);
 
                     Utilisateur util = new Utilisateur();
 
@@ -132,7 +136,7 @@ public class SignIn extends AppCompatActivity {
 
 
                     /************** on formate la date de naissance de String a Date *************/
-                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                     try {
                         date = sdf.parse(string_date);
                         // date = new Date(sdf.parse(string_date).getTime());
@@ -140,6 +144,7 @@ public class SignIn extends AppCompatActivity {
                         e.printStackTrace();
                         ERROR=true;
                     }
+
                     // on insere la date de naissance
                     util.setDatedenaissance(date);
 
@@ -162,16 +167,21 @@ public class SignIn extends AppCompatActivity {
                     /************** on insere la ville *************/
                     util.setVille(string_ville);
 
-                    if (ERROR==false)
+                    if (ERROR==false) {
+                        Log.d(TAG, "ERROR false = " + ERROR);
                         session = inscription.register(util);
-                    UserHandler.getInstance().setUser(session);
-                    Intent intent = new Intent(SignIn.this, Home.class);
-                    Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(SignIn.this).toBundle();
-                    startActivity(intent, bundle);
 
-                    if (session==null)
+                    }
+                    if (session==null) {
                         Toast.makeText(SignIn.this, "Erreur de communication avec la base de donnée",
                                 Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        UserHandler.getInstance().setUser(session);
+                        Intent intent = new Intent(SignIn.this, Home.class);
+                        Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(SignIn.this).toBundle();
+                        startActivity(intent, bundle);
+                    }
                 }
             }
         });

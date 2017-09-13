@@ -3,7 +3,7 @@ package cdi.com.onsport;
 import java.util.Date;
 import java.util.List;
 
-public interface   IService {
+public interface IService {
 
 	Utilisateur authenticate(String email, String password);
 	

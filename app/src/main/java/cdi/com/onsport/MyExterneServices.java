@@ -72,7 +72,7 @@ public class MyExterneServices implements IService {
 
     @Override
     public List<Activites> getListActivity(String codepostal, Date debut, Date fin, Integer num) {
-        List<Activites> la= new ArrayList<>();
+        List<Activites> la = new ArrayList<>();
         if(!prod){
             for (int i=0;i<10;i++){
                 Activites activite=new Activites("Lille"+i,Calendar.getInstance().getTime(),Calendar.getInstance().getTime(),10+i,"fouteux de brun","un message bidon");

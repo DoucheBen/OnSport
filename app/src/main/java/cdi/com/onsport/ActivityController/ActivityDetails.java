@@ -1,15 +1,15 @@
-package cdi.com.onsport.Activity;
+package cdi.com.onsport.ActivityController;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import cdi.com.onsport.R;
 
-public class ProposeActivity extends AppCompatActivity {
+public class ActivityDetails extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_propose);
+        setContentView(R.layout.activity_details);
     }
 }

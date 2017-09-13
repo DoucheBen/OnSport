@@ -103,6 +103,7 @@ public class MyExterneServices implements IService {
                 "fouteux de brun", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam elit lorem, luctus non nisi sagittis," +
                 " ultrices facilisis nisl. Maecenas eget purus a justo efficitur vestibulum a vitae turpis. Quisque pretium leo id ultrices" +
                 " tristique. Nullam lacinia suscipit finibus. Aliquam tempus justo neque, a volutpat tellus maximus at. ");
+        act.setListe_participants(Integer.toString(5));
         act.setId(10);
         return act;
     }

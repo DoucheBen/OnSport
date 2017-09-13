@@ -1,17 +1,15 @@
-package cdi.com.onsport.Activity;
+package cdi.com.onsport.ActivityController;
 
-import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.transition.Slide;
+import android.view.Gravity;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -31,6 +29,11 @@ public class ListeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_liste);
 
+        Slide slideOut = new Slide(Gravity.LEFT);
+        getWindow().setExitTransition(slideOut);
+        Slide slideIn = new Slide(Gravity.RIGHT);
+        getWindow().setEnterTransition(slideIn);
+
         mListView = (ListView) findViewById(R.id.liste);
 
         MyExterneServices es = new MyExterneServices(false);
@@ -46,7 +49,8 @@ public class ListeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ListeActivity.this, Home.class);
-                startActivity(intent);
+                Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(ListeActivity.this).toBundle();
+                startActivity(intent, bundle);
             }
         });
 

@@ -72,6 +72,7 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
+            android:focusableInTouchMode="false"
             android:layout_gravity="center"
             android:layout_marginBottom="8dp"
             android:hint="Date de l'activité"
@@ -107,15 +108,19 @@
             android:textColorHint="@color/lightGrey"
             android:textSize="14dp"
             />
-
-
-
-
-
-
-
-
-
+        <EditText
+            android:id="@+id/Comment"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginBottom="8dp"
+            android:hint="Commentaire"
+            android:inputType="text"
+            android:textColor="#64221b"
+            android:textColorHint="@color/lightGrey"
+            android:textSize="14dp"
+            />
 
     </LinearLayout>
 
@@ -127,7 +132,7 @@
         android:weightSum="1">
         <Button
 
-            android:id="@+id/SignUp"
+            android:id="@+id/AddActivity"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
@@ -136,7 +141,7 @@
             android:layout_marginBottom="20dp"
             android:background="@drawable/btn_red"
             android:clickable="true"
-            android:text="Enregistrer l'activitée"
+            android:text="Enregistrer l'activité"
             android:textAllCaps="false"
             android:textColor="#ffffff" />
     </LinearLayout>
